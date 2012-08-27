@@ -1,5 +1,5 @@
 === Nevobo Feed ===
-Contributors: masselink
+Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
 Tested up to: 3.4.1
