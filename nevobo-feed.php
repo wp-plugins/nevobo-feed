@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: Nevobo Feed
-Plugin URI: http://maselink.net
+Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 0.9b
+Version: 1.0
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','0.9b');
+define('nevobo_feed_versie','1.0');
 add_shortcode('nevobo','nevobo_shortcode');
 
 // Nevobo Feed shortcode toevoegen
@@ -32,7 +32,7 @@ function nevobo_feed($feed,$add_paras) {
 
 // Feed list code
 function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {  
-    $code="<!-- Nevobo Feed".nevobo_feed_versie." | http://www.masselink.net -->\n";
+    $code="<!-- Nevobo Feed ".nevobo_feed_versie." | http://www.masselink.net -->\n";
     // Alles naar de kleine letters om waarden te kunnen testen (behalve de url, deze blijft intact)
     $list_limit=strtolower($list_limit);
     $doel=strtolower($doel);
@@ -94,17 +94,19 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
 					break;
 					case 2: //Uitslagen
 						$code .= '<table id="nevobo_feed">';
-						$code .='<thead><tr><th>Datum</th><th>Wedstrijd</th><th>Uitslag</th></tr></thead><tbody>';
+						$code .='<thead><tr><th>Datum</th><th>Wedstrijd</th><th>Uitslag</th><th>Sets</th></tr></thead><tbody>';
 						foreach ($items as $item) {
 										//Datum
+										$code .= '<tr>';
 										$regex = "#[^ ]+ ([0-9]?[0-9]) (...) (....) [^ ]+ [^ ]+#";
-										$replacement = '<tr><td>$1 $2</td>';
+										$replacement = '<td>$1 $2</td>';
 										$code .= preg_replace($regex, $replacement, $item[pubdate]);
 										//wedstrijd gegevens
 										$regex = '#[^ ]+ ([^-]+) - ([^,]+), Uitslag: ([^,]+), Setstanden: (.*)#'; 
 										$replacement = '<td>$1 - $2</td><td>$3</td><td>$4</td>';
-										$check .= preg_replace($regex, $replacement, $item[description]);
-										if (stristr($check,"geen uitslagen")) {$code.="<td><br>Er zijn nog geen uitslagen bekend</td><td></td><td></td>"; } else {
+										$check = preg_replace($regex, $replacement, $item[description]);
+
+										if (stristr($check,"geen uitslagen")) {$code .= "<td><br>Er zijn nog geen uitslagen bekend</td>"; } else {
 											$code .= $check;
 										}
 										$code .= '</tr>';

@@ -2,8 +2,8 @@
 Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
-Tested up to: 3.4.1
-Stable tag: 3.4.1
+Tested up to: 3.4.2
+Stable tag: 3.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,14 +50,30 @@ cache=0 (schakel de cache uit)
 
 == Screenshots ==
 
-Niet beschikbaar
+Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien.
 
 == Changelog ==
+
+= 1.0 =
+* Bugfix in Uitslagen
 
 = 0.9b =
 * Eerste release
 
 == Upgrade Notice ==
 
-= 0.9b =
-* Eerste release
+= 1.0 =
+* Bugfix in Uitslagen
+
+== Donations ==
+
+Het maken (en bijhouden) van plugins kost veel tijd. Donaties als waardering dan ook van harte welkom.
+Zo kan ik in mijn (spaarzame) vrijetijd een biertje of kopje koffie drinken.
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="SC7YX4S3PA79W">
+<input type="image" src="https://www.paypalobjects.com/nl_NL/NL/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal, de veilige en complete manier van online betalen.">
+<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
+</form>
+
