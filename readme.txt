@@ -54,6 +54,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.0.1 =
+* Kleine fix in de uitlijning van de tabelheaders. (staan nu niet meer tegen elkaar)
+
 = 1.0 =
 * Bugfix in Uitslagen
 
@@ -62,8 +65,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.0 =
-* Bugfix in Uitslagen
+= 1.0.1 =
+* Kleine fix in de uitlijning van de tabelheaders
 
 == Donations ==
 

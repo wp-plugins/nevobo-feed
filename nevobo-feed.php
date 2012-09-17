@@ -3,7 +3,7 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.0
+Version: 1.0.1
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
@@ -75,7 +75,7 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
 			switch ($nevobo_feedtype) {
 					case 1:
 						$code .= '<table id="nevobo_feed">';
-						$code .= '<thead><tr><th>#</th><th>Team</th><th>Wedstrijden</th><th>Punten</th></tr></thead><tbody>';
+						$code .= '<thead><tr><th>#     </th><th>Team </th><th>Wedstrijden </th><th>Punten </th></tr></thead><tbody>';
 						$code .= '<tr>';
 						foreach ($items as $item) {
 							$standen = explode("<br />", $item[description]);
@@ -94,7 +94,7 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
 					break;
 					case 2: //Uitslagen
 						$code .= '<table id="nevobo_feed">';
-						$code .='<thead><tr><th>Datum</th><th>Wedstrijd</th><th>Uitslag</th><th>Sets</th></tr></thead><tbody>';
+						$code .='<thead><tr><th>Datum   </th><th>Wedstrijd </th><th>Resultaat </th></tr></thead><tbody>';
 						foreach ($items as $item) {
 										//Datum
 										$code .= '<tr>';
@@ -103,7 +103,7 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
 										$code .= preg_replace($regex, $replacement, $item[pubdate]);
 										//wedstrijd gegevens
 										$regex = '#[^ ]+ ([^-]+) - ([^,]+), Uitslag: ([^,]+), Setstanden: (.*)#'; 
-										$replacement = '<td>$1 - $2</td><td>$3</td><td>$4</td>';
+										$replacement = '<td>$1 - $2</td><td>$3 ($4)</td>';
 										$check = preg_replace($regex, $replacement, $item[description]);
 
 										if (stristr($check,"geen uitslagen")) {$code .= "<td><br>Er zijn nog geen uitslagen bekend</td>"; } else {
@@ -116,9 +116,9 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
 					break;
 					case 3: //Programma
 						$code .= '<table id="nevobo_feed">';
-						$code.='<thead><tr><th>Datum</th><th>Tijd</th><th>Wedstrijd</th>';
-						if ($sporthal==1) { $code .= '<th>Sporthal</th>';}
-						if ($plaats==1) { $code .= '<th>Plaats</th>';}
+						$code.='<thead><tr><th>Datum   </th><th>Tijd </th><th>Wedstrijd </th>';
+						if ($sporthal==1) { $code .= '<th>Sporthal </th>';}
+						if ($plaats==1) { $code .= '<th>Plaats </th>';}
 						$code .= '</tr></thead><tbody>';
 						 // Loopje voor alle items
 							foreach ($items as $item) {
