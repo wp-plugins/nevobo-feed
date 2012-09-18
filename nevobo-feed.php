@@ -144,7 +144,7 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
         }
     }
 // Stop of processing loop -----------------------------------------------------------------
-    $code.="<a style='display:none;' href='http://masselink.net/nevobo-feed'><img='http://masselink.net/tracker/nevobo-feed-pixel.png?".$_SERVER["SERVER_NAME"]."></a>";
+    $code.="<a style='display:none;' href='http://masselink.net/nevobo-feed'><img src='http://masselink.net/tracker/nevobo-feed-pixel.png?".$_SERVER["SERVER_NAME"]."'></a>";
     $code.="<!-- einde van de nevobo feed -->";
     return $code;
 }
