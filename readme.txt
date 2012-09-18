@@ -54,6 +54,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.0.3 =
+* Kleine Fix. Debug stond nog aan
+
 = 1.0.2 =
 * Kleine fix voor als er geen uitslag bekend is
 * Kleine optimalizatie & Backlink
@@ -69,9 +72,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.0.2 =
-* Kleine fix voor als er geen uitslag bekend is
-* Kleine optimalizatie & Backlink
+= 1.0.3 =
+* Kleine Fix. Debug stond nog aan
 
 == Donations ==
 

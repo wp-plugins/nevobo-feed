@@ -102,7 +102,6 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="1") {
 										$regex = '#[^ ]+ ([^-]+) - ([^,]+), Uitslag: ([^,]+), Setstanden: (.*)#'; 
 										$replacement = '<td>$1 - $2</td><td>$3 ($4)</td>';
 										$check = preg_replace($regex, $replacement, $item[description]);
-										echo $check;
 										if (stristr($check,"geen uitslagen")) {$code .= "<td><br>Er zijn nog geen uitslagen bekend<br><br></td><td></td><td></td>"; } else {
 											$code .= $check;
 										}
