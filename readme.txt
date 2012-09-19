@@ -2,6 +2,7 @@
 Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
+Donate link: http://massselink.net/nevobo-feed
 Tested up to: 3.4.2
 Stable tag: 3.4.2
 License: GPLv2 or later
@@ -42,10 +43,10 @@ e.g.
 
 = Welke opties kan ik gebruiken =
 
-sporthal=1 (alleen bij programma's)
-plaats=1 (alleen bij programma's)
+sporthal=1 (zet sporthal aan in het programma overzicht)
+plaats=1 (zet plaatsen aan in het programma overzicht)
 aantal=x (limiteer het aantal items)
-cache=0 (schakel de cache uit)
+cache=x (0 = schakel de cache uit, 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc)
 
 
 == Screenshots ==
@@ -53,6 +54,9 @@ cache=0 (schakel de cache uit)
 Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien.
 
 == Changelog ==
+
+= 1.1 =
+* Caching parameter per 15 minuten.
 
 = 1.0.3 =
 * Kleine Fix. Debug stond nog aan
@@ -72,18 +76,13 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.0.3 =
-* Kleine Fix. Debug stond nog aan
+= 1.1 =
+* Caching parameter per 15 minuten.
 
 == Donations ==
 
 Het maken (en bijhouden) van plugins kost veel tijd. Donaties als waardering dan ook van harte welkom.
 Zo kan ik in mijn (spaarzame) vrijetijd een biertje of kopje koffie drinken.
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="SC7YX4S3PA79W">
-<input type="image" src="https://www.paypalobjects.com/nl_NL/NL/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal, de veilige en complete manier van online betalen.">
-<img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
-</form>
+<a href="masselink.net/nevobo-feed">klik hier oom naar de website te gaan en te doneren</a>
 
