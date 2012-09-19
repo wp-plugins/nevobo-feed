@@ -3,11 +3,11 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.1
+Version: 1.2
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','1.1');
+define('nevobo_feed_versie','1.2');
 add_shortcode('nevobo','nevobo_shortcode');
 
 // Nevobo Feed shortcode toevoegen
@@ -72,7 +72,7 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {
 			if ($aantal==null) {$aantal=6;}  
              $items=array_slice($array->items,0,$aantal);
 			//rss table headers | 1-stand, 2-uitslagen, 3-Programma
-            $code = '<table id="nevobo_feed">';
+            $code .= '<table id="nevobo_feed">';
 			switch ($nevobo_feedtype) {
 					case 1:
 						$code .= '<thead><tr><th>#     </th><th>Team </th><th>Wedstrijden </th><th>Punten </th></tr></thead><tbody>';
@@ -91,6 +91,7 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {
 						$code .= '</tr>';
 					break;
 					case 2: //Uitslagen
+						$code = '<table id="nevobo_feed">';
 						$code .='<thead><tr><th>Datum   </th><th>Wedstrijd </th><th>Resultaat </th></tr></thead><tbody>';
 						foreach ($items as $item) {
 										//Datum
@@ -99,11 +100,11 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {
 										$replacement = '<td>$1 $2</td>';
 										$code .= preg_replace($regex, $replacement, $item[pubdate]);
 										//wedstrijd gegevens
-										$regex = '#[^ ]+ ([^-]+) - ([^,]+), Uitslag: ([^,]+), Setstanden: (.*)#'; 
+										$regex = '#Wedstrijd: ([^-]+) - ([^,]+), Uitslag: ([^,]+)*, Setstanden: ?(.*)#'; 
 										$replacement = '<td>$1 - $2</td><td>$3 ($4)</td>';
 										$check = preg_replace($regex, $replacement, $item[description]);
 										if (stristr($check,"geen uitslagen")) {$code .= "<td><br>Er zijn nog geen uitslagen bekend<br><br></td><td></td><td></td>"; } else {
-											$code .= $check;
+											$code .= str_replace("()", "Uitslag nog niet bekend", $check);
 										}
 										$code .= '</tr>';
 					    	 }

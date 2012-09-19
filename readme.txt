@@ -31,13 +31,9 @@ voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php
 
 == Installation ==
 
-Deze sectie is voor de instalatie van de plugin.
-
-e.g.
-
-1. Unzip de `nevobo-feed.zip` in de `/wp-content/plugins/` directory
-1. Activeer de plugin in het 'Plugins' menu in WordPress
-1. Gebruik de shortcode [nevobo feed=<url van de feed>] in je site
+1. Installeer door in wordpress een nieuwe plugin te zoeken met als naam "Nevobo feed"
+2. Activeer de plugin in het 'Plugins' menu in WordPress
+3. Gebruik de shortcode [nevobo feed=<url van de feed>] in je site
 
 == Frequently Asked Questions ==
 
@@ -54,6 +50,9 @@ cache=x (0 = schakel de cache uit, 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten 
 Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien.
 
 == Changelog ==
+
+= 1.2 =
+* De Nevobo stuurt uitslagen ook als deze nog niet bekend zijn. De plugin geeft nu de status "Uitslag nog niet bekend"
 
 = 1.1 =
 * Caching parameter per 15 minuten.
