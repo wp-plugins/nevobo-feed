@@ -3,17 +3,17 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.2
+Version: 1.2.2
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','1.2');
+define('nevobo_feed_versie','1.2.2');
 add_shortcode('nevobo','nevobo_shortcode');
 
 // Nevobo Feed shortcode toevoegen
 function nevobo_shortcode($paras="",$content="") {
-    extract(shortcode_atts(array('feed'=>'','aantal'=>'','sporthal'=>'','plaats'=>'','cache'=>''),$paras));
-    return get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,'sc');
+    extract(shortcode_atts(array('feed'=>'','aantal'=>'','sporthal'=>'','plaats'=>'','cache'=>'', 'ical'=>''),$paras));
+    return get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$ical,'sc');
 }
 
 
@@ -23,20 +23,20 @@ function nevobo_feed($feed,$add_paras) {
         $sporthal=get_feed_parameters($add_paras,"sporthal");
 		$plaats=get_feed_parameters($add_paras,"plaats");
         $cache=get_feed_parameters($add_paras,"cache");
+        $ical=get_feed_parameters($add_paras,"ical");
 
     // Trap de feed af
-    echo get_nevobo($feed,$aantal,$sporthal,$plaats,$doel,$cache);
+    echo get_nevobo($feed,$aantal,$sporthal,$plaats,$doel,$cache,$ical);
     return;
 }
 	
 
 // Feed list code
-function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {  
+function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4",$ical="") {  
     $code="<!-- Nevobo Feed ".nevobo_feed_versie." | http://www.masselink.net -->\n";
     // Alles naar de kleine letters om waarden te kunnen testen (behalve de url, deze blijft intact)
     $list_limit=strtolower($list_limit);
     $doel=strtolower($doel);
-    $cache=strtolower($cache);
 	
     // Limiten instellen
     $check_failure=false;
@@ -69,7 +69,8 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {
         } else {
         	
 // Start of processing loop -----------------------------------------------------------------
-			if ($aantal==null) {$aantal=6;}  
+			if ($aantal==null) {$aantal=6;}
+			if ($ical==null) {$ical=1;}  
              $items=array_slice($array->items,0,$aantal);
 			//rss table headers | 1-stand, 2-uitslagen, 3-Programma
             $code .= '<table id="nevobo_feed">';
@@ -133,7 +134,6 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {
 											$code .= preg_replace($regex, $replacement, $item[description]);
 											}
 										$code .= '</tr>';
-										
 					}
 					break;
 					default:
@@ -142,6 +142,12 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4") {
 
             }
             $code .= "</tbody></table>";
+            if (($nevobo_feedtype==3) && ($ical==1)) {
+
+            	$icalfeed = str_replace("format=rss", "format=ical", $feed);
+            	$code .= '<a href="'.$icalfeed.'"><img align="absmiddle" src="wp-content/plugins/nevobo-feed/images/ical_grey.png"> Voeg het volledige programma toe aan je agenda</a><br /><br />'; 
+
+        }
         }
     }
 // Stop of processing loop -----------------------------------------------------------------

@@ -21,11 +21,13 @@ aantal=x
 sporthal=1
 plaats=1
 cache=0
+ical=0
 
-Bij Aantal=x is de x een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
-Sporthal=1 geeft de sporthal waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
-Plaats=1 geeft de plaats waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
-Met Cache=0 wordt het gebruik van RSS caching uitgeschakeld. Caching is standaard ingesteld op 3600 (1 uur)
+Aantal=x: De x is een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
+Sporthal=1: geeft de sporthal waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
+Plaats=1: geeft de plaats waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
+Cache=0: Het gebruik van RSS caching uitgeschakeld. Caching is standaard ingesteld op 1 uur. Cache = x. 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc.
+ical=0: Verberg de ical programma link bij een programma.
 
 voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1]
 
@@ -51,6 +53,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.2.2 =
+* Toon ical link voor het volledige programma om te importeren in je eigen agenda.
+
 = 1.2 =
 * De Nevobo stuurt uitslagen ook als deze nog niet bekend zijn. De plugin geeft nu de status "Uitslag nog niet bekend"
 
@@ -75,8 +80,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.1 =
-* Caching parameter per 15 minuten.
+= 1.2.2 =
+* Toon ical link voor het volledige programma om te importeren in je eigen agenda.
 
 == Donations ==
 
