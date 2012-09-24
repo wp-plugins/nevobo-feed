@@ -143,9 +143,8 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4",$ical=
             }
             $code .= "</tbody></table>";
             if (($nevobo_feedtype==3) && ($ical==1)) {
-
             	$icalfeed = str_replace("format=rss", "format=ical", $feed);
-            	$code .= '<a href="'.$icalfeed.'"><img align="absmiddle" src="/wp-content/plugins/nevobo-feed/images/ical_grey.png"> Voeg het volledige programma toe aan je agenda</a><br /><br />'; 
+            	$code .= '<a href="'.$icalfeed.'"><img align="absmiddle" src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/ical_grey.png"> Voeg het volledige programma toe aan je agenda</a><br /><br />'; 
 
         }
         }
