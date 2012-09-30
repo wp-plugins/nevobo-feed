@@ -22,12 +22,14 @@ sporthal=1
 plaats=1
 cache=0
 ical=0
+team='<verenigingsnaam>'
 
 Aantal=x: De x is een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
 Sporthal=1: geeft de sporthal waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
 Plaats=1: geeft de plaats waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
 Cache=0: Het gebruik van RSS caching uitgeschakeld. Caching is standaard ingesteld op 1 uur. Cache = x. 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc.
 ical=0: Verberg de ical programma link bij een programma.
+team=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight". Er zal zelf nog voor CSS styling gezorgd moeten worden.
 
 voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1]
 
@@ -39,19 +41,28 @@ voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php
 
 == Frequently Asked Questions ==
 
-= Welke opties kan ik gebruiken =
+= Welke opties kan ik gebruiken? =
 
 sporthal=1 (zet sporthal aan in het programma overzicht)
 plaats=1 (zet plaatsen aan in het programma overzicht)
 aantal=x (limiteer het aantal items)
 cache=x (0 = schakel de cache uit, 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc)
+ical=0 (0 schakel de ical link uit)
+
+= Welke uitslagen kan ik tonen? =
+Het is mogelijk de uitslagen van de poule of de uitslagen van het team weer te geven.
+De gekozen feed bepaald de getoonde uitslagen
 
 
 == Screenshots ==
 
-Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien.
+Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien. Ook <a href="http://krekkers.nl" taget="_blank">Krekkers.nl</a> maakt gebruik van de plugin.
 
 == Changelog ==
+
+= 1.3.0 =
+* Bugfix als de teamnaam een "-" bevat zoals Set-Up'65. (Regular expression herschreven) 
+* Team accentuering. (afwijkende css styling voor de verenigng teams)
 
 = 1.2.2 =
 * Toon ical link voor het volledige programma om te importeren in je eigen agenda.
@@ -80,8 +91,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.2.2 =
-* Toon ical link voor het volledige programma om te importeren in je eigen agenda.
+= 1.2.3 =
+* Bugfix als de teamnaam een "-" bevat zoals Set-Up'65. (Regular expression aanpassing) 
 
 == Donations ==
 
