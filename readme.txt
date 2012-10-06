@@ -60,6 +60,12 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.3.4 =
+* Set standen worden nu getoond als er met de muis over het plaatje wordt gehoverd
+* Nieuwe indeling in de tabbelen voor programma en uitslagen.
+* ical link veranderd automatisch naar een team of poule programma
+* Nieuwe graphics
+
 = 1.3.0 =
 * Bugfix als de teamnaam een "-" bevat zoals Set-Up'65. (Regular expression herschreven) 
 * Team accentuering. (afwijkende css styling voor de verenigng teams)
@@ -91,8 +97,11 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.2.3 =
-* Bugfix als de teamnaam een "-" bevat zoals Set-Up'65. (Regular expression aanpassing) 
+= 1.3.4 =
+* Set standen worden nu getoond als er met de muis over het plaatje wordt gehoverd
+* Nieuwe indeling in de tabbelen voor programma en uitslagen.
+* ical link veranderd automatisch naar een team of poule programma
+* nieuwe graphics.
 
 == Donations ==
 
