@@ -67,7 +67,6 @@ function get_nevobo($feed,$aantal="20",$sporthal="",$plaats="",$cache="4",$team=
         } else {
         	
 // Start of processing loop -----------------------------------------------------------------
-			$team='krekkers';
 			if ($aantal==null) {$aantal=6;}
 			if ($ical==null) {$ical=1;}  
              $items=array_slice($array->items,0,$aantal);
