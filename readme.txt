@@ -2,7 +2,7 @@
 Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
-Donate link: http://massselink.net/nevobo-feed
+Donate link: http://www.massselink.net/nevobo-feed
 Tested up to: 3.5
 Stable tag: 3.4.2
 License: GPLv2 or later
