@@ -14,7 +14,9 @@ Toon de standen, uitslagen en programma feeds in de juiste theme-stijl op je wor
 
 [nevobo feed=<url van de feed>]
 
-De plugin detecteert zelf welke feed het betreft. Plaats de volgende shortcode ergens op de wordpress site. 
+De plugin detecteert zelf welke feed het betreft. Plaats de shortcode ergens op de wordpress site.
+Via het admin paneel zijn algemene instellingen te wijzigen. Indien in de shortcodes ook waarden worden gespecificeerd hebben deze voorrang op de instellingen in het dashboard. 
+
 De volgende extra opties zijn mogelijk:
 
 aantal=x 
@@ -22,14 +24,14 @@ sporthal=1
 plaats=1
 cache=0
 ical=0
-team='<verenigingsnaam>'
+vereniging='<verenigingsnaam of een deel ervan>'
 
 Aantal=x: De x is een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
 Sporthal=1: geeft de sporthal waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
 Plaats=1: geeft de plaats waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
 Cache=0: Het gebruik van RSS caching uitgeschakeld. Caching is standaard ingesteld op 1 uur. Cache = x. 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc.
 ical=0: Verberg de ical programma link bij een programma.
-team=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight". Er zal zelf nog voor CSS styling gezorgd moeten worden.
+vereniging=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight".
 
 voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1]
 
@@ -53,12 +55,15 @@ ical=0 (0 schakel de ical link uit)
 Het is mogelijk de uitslagen van de poule of de uitslagen van het team weer te geven.
 De gekozen feed bepaald de getoonde uitslagen
 
-
 == Screenshots ==
 
 Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien. Ook <a href="http://krekkers.nl" taget="_blank">Krekkers.nl</a> maakt gebruik van de plugin.
 
 == Changelog ==
+
+= 1.4 =
+* Instellingen configureerbaar in het dashboard.
+* Team highlighting
 
 = 1.3.4 =
 * Set standen worden nu getoond als er met de muis over het plaatje wordt gehoverd
@@ -97,11 +102,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.3.4 =
-* Set standen worden nu getoond als er met de muis over het plaatje wordt gehoverd
-* Nieuwe indeling in de tabbelen voor programma en uitslagen.
-* ical link veranderd automatisch naar een team of poule programma
-* nieuwe graphics.
+= 1.4 =
+* Instellingen configureerbaar in het dashboard.
+* Team highlighting
 
 == Donations ==
 
