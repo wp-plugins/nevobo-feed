@@ -2,8 +2,8 @@
 Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
-Donate link: http://www.massselink.net/nevobo-feed
-Tested up to: 3.5
+Donate link: http://massselink.net/nevobo-feed
+Tested up to: 3.4.2
 Stable tag: 3.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +24,7 @@ sporthal=1
 plaats=1
 cache=0
 ical=0
-vereniging="verenigingsnaam of een deel ervan"
+vereniging='<verenigingsnaam of een deel ervan>'
 
 Aantal=x: De x is een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
 Sporthal=1: geeft de sporthal waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
@@ -111,5 +111,5 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 Het maken (en bijhouden) van plugins kost veel tijd. Donaties als waardering dan ook van harte welkom.
 Zo kan ik in mijn (spaarzame) vrijetijd een biertje of kopje koffie drinken.
 
-<a href="http://masselink.net/nevobo-feed">klik hier oom naar de website te gaan en te doneren</a>
+<a href="masselink.net/nevobo-feed">klik hier oom naar de website te gaan en te doneren</a>
 
