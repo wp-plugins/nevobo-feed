@@ -3,19 +3,19 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.4.1
+Version: 1.4.2
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','1.4.1');
+define('nevobo_feed_versie','1.4.2');
 add_shortcode('nevobo','nevobo_shortcode');
 add_action('admin_menu', 'nevobo_admin_actions');
 add_action( 'wp_enqueue_scripts', 'nevobo_feed_stylesheet' );
 
 // Nevobo Feed shortcode toevoegen
 function nevobo_shortcode($paras="",$content="") {
-    extract(shortcode_atts(array('feed'=>'','aantal'=>'','sporthal'=>'','plaats'=>'','cache'=>'', 'vereniging'=>'', 'ical'=>'', 'naamlengte'=>''),$paras));
-    return get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$naamlengte);
+    extract(shortcode_atts(array('feed'=>'','aantal'=>'','sporthal'=>'','plaats'=>'','cache'=>'', 'vereniging'=>'', 'ical'=>'', 'sets'=>'','naamlengte'=>''),$paras));
+    return get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$sets,$naamlengte);
 }
 
 
@@ -27,20 +27,22 @@ function nevobo_feed($feed,$add_paras) {
         $cache=get_feed_parameters($add_paras,"cache");
         $vereniging=get_feed_parameters($add_paras,"vereniging");
         $ical=get_feed_parameters($add_paras,"ical");
+        $sets=get_feed_parameters($add_paras,"sets");
 
     // Trap de feed af
-    echo get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$naamlengte);
+    echo get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$sets,$naamlengte);
     return;
 }	
 
 // Feed list code
-function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$naamlengte) {  
+function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$sets,$naamlengte) {  
     //Standaard parameter fallback
-	if (empty($vereniging)) $vereniging=get_option('nevobofeed_vereniging');
-	if (empty($sporthal)) $sporthal=get_option('nevobofeed_sporthal');
-	if (empty($plaats)) $plaats=get_option('nevobofeed_plaats');
-	if (empty($cache)) $cache=get_option('nevobofeed_cache');
-	if (empty($ical)) $ical=get_option('nevobofeed_ical');
+	if (!isset($vereniging)) $vereniging=get_option('nevobofeed_vereniging');
+	if (!isset($sporthal)) $sporthal=get_option('nevobofeed_sporthal');
+	if (!isset($plaats)) $plaats=get_option('nevobofeed_plaats');
+	if (!isset($cache)) $cache=get_option('nevobofeed_cache');
+	if (!isset($ical)) $ical=get_option('nevobofeed_ical');
+	if (!isset($sets)) $sets=get_option('nevobofeed_sets');
 
         
     $code="<!-- Nevobo Feed ".nevobo_feed_versie." | http://www.masselink.net -->\n";
@@ -125,10 +127,9 @@ function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$na
 										$regex = '#Wedstrijd: ([\w\W\s\S\d\D]+) - ([\w\W\s\S\d\D]+), Uitslag: ([^,]+)*, Setstanden: ?(.*)#'; 
 										preg_match($regex, $item[description], $groep);
 										if ($vereniging!="") if (stristr($groep[1],$vereniging)) $groep[1] = "<span class='nevobo_highlight'>".$groep[1]."</span>";
-										if ($vereniging!="") if (stristr($groep[2],$vereniging)) $groep[2] = "<span class='nevobo_highlight'>".$groep[2]."</span>";
 										$check = '<td>'.$groep[1].'</td><td> - </td><td> '.$groep[2].'</td><td>'.$groep[3];
 										if ($groep[4]!='') { 
-											$check .= '   <img src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/sets_grey.png" title="'.$groep[4].'"></td>';
+											if ($sets=='1') {$check .= '   <img src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/sets_grey.png" title="'.$groep[4].'"></td>';}
 										} else {
 											$check .= 'onbekend';
 										}

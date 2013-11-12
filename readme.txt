@@ -24,6 +24,7 @@ sporthal=1
 plaats=1
 cache=0
 ical=0
+sets=1
 vereniging='<verenigingsnaam of een deel ervan>'
 
 Aantal=x: De x is een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
@@ -31,6 +32,7 @@ Sporthal=1: geeft de sporthal waar de wedstrijd wordt gespeeld weer in het progr
 Plaats=1: geeft de plaats waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
 Cache=0: Het gebruik van RSS caching uitgeschakeld. Caching is standaard ingesteld op 1 uur. Cache = x. 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc.
 ical=0: Verberg de ical programma link bij een programma.
+sets=0: Verberg de setstanden bij een uitslag 
 vereniging=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight".
 
 voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1]
@@ -50,6 +52,7 @@ plaats=1 (zet plaatsen aan in het programma overzicht)
 aantal=x (limiteer het aantal items)
 cache=x (0 = schakel de cache uit, 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc)
 ical=0 (0 schakel de ical link uit)
+sets=1 (toon setstanden door op een plaatje te hooveren)
 
 = Welke uitslagen kan ik tonen? =
 Het is mogelijk de uitslagen van de poule of de uitslagen van het team weer te geven.
@@ -60,6 +63,12 @@ De gekozen feed bepaald de getoonde uitslagen
 Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien. Ook <a href="http://krekkers.nl" taget="_blank">Krekkers.nl</a> maakt gebruik van de plugin.
 
 == Changelog ==
+
+= 1.4.2 =
+* fix waarbij de set afbeelding werd getoond zelfs als deze uit gzet was.
+
+= 1.4.1 =
+* fix voor veranderingen door de editor met &, &amp; en &amp;amp;
 
 = 1.4 =
 * Instellingen configureerbaar in het dashboard.
@@ -102,9 +111,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.4 =
-* Instellingen configureerbaar in het dashboard.
-* Team highlighting
+= 1.4.2 =
+* Fix met betrekking op het hiden van items zoals de sets
 
 == Donations ==
 
