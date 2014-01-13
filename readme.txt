@@ -3,8 +3,8 @@ Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
 Donate link: http://massselink.net/nevobo-feed
-Tested up to: 3.4.2
-Stable tag: 3.4.2
+Tested up to: 3.8
+Stable tag: 3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,8 +64,11 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.4.3 =
+* RSS special characters fix. (Thanks: Bossdwarf)
+
 = 1.4.2 =
-* fix waarbij de set afbeelding werd getoond zelfs als deze uit gzet was.
+* fix waarbij de set afbeelding werd getoond zelfs als deze uit gezet was.
 
 = 1.4.1 =
 * fix voor veranderingen door de editor met &, &amp; en &amp;amp;
@@ -111,8 +114,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.4.2 =
-* Fix met betrekking op het hiden van items zoals de sets
+= 1.4.3 =
+* RSS special characters fix. (Thanks: Bossdwarf)
 
 == Donations ==
 

@@ -3,11 +3,11 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.4.2
+Version: 1.4.3
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','1.4.2');
+define('nevobo_feed_versie','1.4.3');
 add_shortcode('nevobo','nevobo_shortcode');
 add_action('admin_menu', 'nevobo_admin_actions');
 add_action( 'wp_enqueue_scripts', 'nevobo_feed_stylesheet' );
@@ -81,7 +81,7 @@ function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$se
  
     if ($check_failure!==true) {
        @include_once(ABSPATH.WPINC.'/rss.php');
-       @$array=fetch_rss($feed);
+       @$array=fetch_rss(wp_specialchars_decode($feed));
 
 		 // Als er geen feed is gevonden, dan een foutmelding genereren
         if ($array=="") {
