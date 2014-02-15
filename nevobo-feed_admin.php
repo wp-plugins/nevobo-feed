@@ -3,6 +3,12 @@
         //stuur Vereniging
         $nevobofeed_vereniging = $_POST['nevobofeed_vereniging'];
         update_option('nevobofeed_vereniging', $nevobofeed_vereniging);
+        //Highlight Color
+        $nevobofeed_highlight_color = $_POST['nevobofeed_highlight_color'];
+        update_option('nevobofeed_highlight_color', $nevobofeed_highlight_color);
+        //image set
+        $nevobofeed_image_set = $_POST['nevobofeed_image_set'];
+        update_option('nevobofeed_image_set', $nevobofeed_image_set);
         //stuur cache
         $nevobofeed_cache = $_POST['nevobofeed_cache'];
         update_option('nevobofeed_cache', $nevobofeed_cache);
@@ -33,15 +39,17 @@
     } else {  
         //Normal page display  
         $nevobofeed_vereniging = get_option('nevobofeed_vereniging'); 
+        $nevobofeed_highlight_color = get_option('nevobofeed_highlight_color');
+        $nevobofeed_image_set = get_option('nevobofeed_image_set');
         $nevobofeed_cache = get_option('nevobofeed_cache');
         $nevobofeed_plaats = get_option('nevobofeed_plaats');
-        $nevobofeed_sportal = get_option('nevobofeed_sporthal');
+        $nevobofeed_sporthal = get_option('nevobofeed_sporthal');
         $nevobofeed_standen_aantal = get_option('nevobofeed_standen_aantal');
         $nevobofeed_uitslagen_aantal = get_option('nevobofeed_uitslagen_aantal');
         $nevobofeed_programma_aantal = get_option('nevobofeed_programma_aantal');
         $nevobofeed_ical = get_option('nevobofeed_ical');
         $nevobofeed_sets = get_option('nevobofeed_sets');
-    }  
+    } 
 ?>
 <style type="text/css">
 
@@ -63,6 +71,7 @@ label
 
   
 </style>
+
 <div>  
     <h1>Nevobo-feed Plugin Instellingen</h1>
     <form name="nevobofeed_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
@@ -76,6 +85,23 @@ label
             <td width="30%"><input type="text" name="nevobofeed_vereniging" value="<?php echo $nevobofeed_vereniging; ?>" size="20" /></td>
             <td width="41%">(gedeeltelijke) naam van een vereniging om extra te onderscheiden. voorbeeld: Krekkers</td>
         </tr>
+          <tr>
+            <td width="29%"><div class="label">Highlight Kleur</div></td>
+            <td width="30%"><input type="text" name="nevobofeed_highlight_color" value="<?php echo $nevobofeed_highlight_color; ?>" /></td>
+            <td width="41%">Geef de highlight kleur op voor de gespecificeerde verenigingsnaam. Bijvoorbeeld #FF0000</td>
+          </tr>
+          <tr>
+            <td width="29%"><div class="label">Afbeelindgen set</div></td>
+              <td>
+               <select name="nevobofeed_image_set" id="nevobofeed_image_set">
+                <option value="grijs" <?php if ($nevobofeed_image_set=="grijs") echo "selected" ?>>Grijs</option>
+                <option value="geel" <?php if ($nevobofeed_image_set=="geel") echo "selected" ?>>Geel</option>
+                <option value="rood" <?php if ($nevobofeed_image_set=="rood") echo "selected" ?>>Rood</option>
+                <option value="lichtblauw" <?php if ($nevobofeed_image_set=="lichtblauw") echo "selected" ?>>Licht Blauw</option>
+              </select>
+             </td>
+            <td width="41%">Kies een afbeeldingen set voor Ical/Sets en Loc</td>
+          </tr>
           <tr>
             <td>Cache</td>
             <td><select name="nevobofeed_cache" id="nevobofeed_cache">
@@ -170,5 +196,4 @@ label
 <input type="image" src="https://www.paypalobjects.com/nl_NL/NL/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, de veilige en complete manier van online betalen.">
 <img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
 </form>
-
 </div> 

@@ -64,6 +64,13 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.5 =
+* Bepaal de highlightkleur nu zelf vanuit het admin menu
+* Betere afbeeldingen (Sets/Cal)
+* Bugfixes met parameters
+* Bugfix met Sporthal en plaats
+* Voorbereiding voor GoogleMaps links
+
 = 1.4.3 =
 * RSS special characters fix. (Thanks: Bossdwarf)
 
@@ -114,8 +121,12 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.4.3 =
-* RSS special characters fix. (Thanks: Bossdwarf)
+= 1.5 =
+* Bepaal de highlightkleur nu zelf vanuit het admin menu
+* Betere afbeeldingen (Sets/Cal)
+* Bugfixes met parameters
+* Bugfix met Sporthal en plaats
+* Voorbereiding voor GoogleMaps links
 
 == Donations ==
 

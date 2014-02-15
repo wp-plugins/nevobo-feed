@@ -3,11 +3,11 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.4.3
+Version: 1.5
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','1.4.3');
+define('nevobo_feed_versie','1.5');
 add_shortcode('nevobo','nevobo_shortcode');
 add_action('admin_menu', 'nevobo_admin_actions');
 add_action( 'wp_enqueue_scripts', 'nevobo_feed_stylesheet' );
@@ -37,22 +37,22 @@ function nevobo_feed($feed,$add_paras) {
 // Feed list code
 function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$sets,$naamlengte) {  
     //Standaard parameter fallback
-	if (!isset($vereniging)) $vereniging=get_option('nevobofeed_vereniging');
-	if (!isset($sporthal)) $sporthal=get_option('nevobofeed_sporthal');
-	if (!isset($plaats)) $plaats=get_option('nevobofeed_plaats');
-	if (!isset($cache)) $cache=get_option('nevobofeed_cache');
-	if (!isset($ical)) $ical=get_option('nevobofeed_ical');
-	if (!isset($sets)) $sets=get_option('nevobofeed_sets');
-
+	if (!is_null($vereniging)) $vereniging=get_option('nevobofeed_vereniging');
+	if (!is_null($sporthal)) $sporthal=get_option('nevobofeed_sporthal'); 
+	if (!is_null($plaats)) $plaats=get_option('nevobofeed_plaats');
+	if (!is_null($cache)) $cache=get_option('nevobofeed_cache');
+	if (!is_null($ical)) $ical=get_option('nevobofeed_ical');
+	if (!is_null($sets)) $sets=get_option('nevobofeed_sets');
+	$highlight_color=get_option('nevobofeed_highlight_color');
+    $image_set=get_option('nevobofeed_image_set');
         
     $code="<!-- Nevobo Feed ".nevobo_feed_versie." | http://www.masselink.net -->\n";
-    $code.= "<link type='text/css' rel='stylesheet' href='" . get_site_url() . "'/wp-content/plugins/nevobo-feed/stylesheet/nevobo-feed.css' />";
     $code.="<span class='nevobofeed'>";
 	
     // Limiten instellen
     $check_failure=false;
-    if (stristr($feed,'&amp;amp;')) { $feed = str_replace('&amp;amp;','&',$feed); }
-    if (stristr($feed,'&amp;')) { $feed = str_replace('&amp;','&',$feed); }
+    //if (stristr($feed,'&amp;amp;')) { $feed = str_replace('&amp;amp;','&',$feed); }
+    //if (stristr($feed,'&amp;')) { $feed = str_replace('&amp;','&',$feed); }
 
 
 	//bepaal het feed type om verschillende stijlen te gebruiken | 1-stand, 2-uitslagen, 3-programma
@@ -106,8 +106,8 @@ function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$se
 						    	$i++;
 						    	$regex = "#([0-9]?[0-9]). ([^\,]+), wedstr: ([^\,]+), punten: ([^\,]+)#";
 								preg_match($regex, $stand, $groep);
-								if ($vereniging!="") if (stristr($groep[2],$vereniging)) $code .= '<tr class="nevobo_highlight">'; else $code .= '<tr>';
-								$code .= '<td>'.$groep[1].'</td><td>'.$groep[2].'</td><td>'.$groep[3].'</td><td>'.$groep[4].'</td></tr>';
+								if ($vereniging!="") if (stristr($groep[2],$vereniging)) $code .= "<tr style='color:".$highlight_color."'>"; else $code .= "<tr>";
+								$code .= "<td>".$groep[1]."</td><td>".$groep[2]."</td><td>".$groep[3]."</td><td>".$groep[4]."</td></tr>";
 								if ($i>$aantal) break;
 							}
 						
@@ -126,10 +126,11 @@ function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$se
 										//wedstrijd gegevens
 										$regex = '#Wedstrijd: ([\w\W\s\S\d\D]+) - ([\w\W\s\S\d\D]+), Uitslag: ([^,]+)*, Setstanden: ?(.*)#'; 
 										preg_match($regex, $item[description], $groep);
-										if ($vereniging!="") if (stristr($groep[1],$vereniging)) $groep[1] = "<span class='nevobo_highlight'>".$groep[1]."</span>";
+										if ($vereniging!="") if (stristr($groep[1],$vereniging)) $groep[1] = "<span style='color:".$highlight_color."'>".$groep[1]."</span>";
+										if ($vereniging!="") if (stristr($groep[2],$vereniging)) $groep[2] = "<span style='color:".$highlight_color."'>".$groep[2]."</span>";
 										$check = '<td>'.$groep[1].'</td><td> - </td><td> '.$groep[2].'</td><td>'.$groep[3];
 										if ($groep[4]!='') { 
-											if ($sets=='1') {$check .= '   <img src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/sets_grey.png" title="'.$groep[4].'"></td>';}
+											if ($sets=='1') {$check .= '   <img src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/'.$image_set.'_sets.png" title="'.$groep[4].'"></td>';}
 										} else {
 											$check .= 'onbekend';
 										}
@@ -152,17 +153,17 @@ function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$se
 										$code .= "<tr>";
 										$regex = "#([^ ]+) ([^ ]+) ([0-9]?[0-9]:[0-9][0-9]): (.*) - (.*)#";
 										preg_match($regex, $item[title], $groep); 
-										if ($vereniging!="") if (stristr($groep[4],$vereniging)) $groep[4] = "<span class='nevobo_highlight'>".$groep[4]."</span>";
-										if ($vereniging!="") if (stristr($groep[5],$vereniging)) $groep[5] = "<span class='nevobo_highlight'>".$groep[5]."</span>";
+										if ($vereniging!="") if (stristr($groep[4],$vereniging)) $groep[4] = "<span style='color:".$highlight_color."'>".$groep[4]."</span>";
+										if ($vereniging!="") if (stristr($groep[5],$vereniging)) $groep[5] = "<span style='color:".$highlight_color."'>".$groep[5]."</span>";
 										$code .= "<td>".$groep[1]." ".$groep[2]."</td><td>".$groep[3]."</td><td>".$groep[4]."</td><td> - </td><td>".$groep[5]."</td>";
 										
 									//Speellocatie toevoegen
 										$groep = '';
 										if ($sporthal==1 || $plaats==1) {
-											$regex = "#Wedstrijd: (.*), Datum: (.*), Speellocatie: (.*), (.*)#";
+											$regex = "#Wedstrijd: (.*), Datum: (.*), (.*), Speellocatie: (.*), (.*), (.*) (.*)#";
 											preg_match($regex, $item[description], $groep);
-											if ($sporthal==1) { $code .= "<td>".$groep[3]."</td>"; }
-											if ($plaats==1) { $code .= "<td>".$groep[4]."</td>"; }
+											if ($sporthal==1) { $code .= "<td>".$groep[4]."</td>"; }
+											if ($plaats==1) { $code .= "<td>".$groep[7]."</td>"; }
 											}
 										$code .= '</tr>';
 					}
@@ -175,9 +176,9 @@ function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$se
             $code .= "</tbody></table>";
             if (($nevobo_feedtype==3) && ($ical==1)) {
             	$icalfeed = str_replace("format=rss", "format=ical", $feed);
-            	if (stristr($icalfeed,"poule")) { $code .= '<img src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/ical_grey.png"> <a href="'.$icalfeed.'">Voeg het volledige programma van de poule aan je agenda toe</a><br /><br />'; 
+            	if (stristr($icalfeed,"poule")) { $code .= '<img src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/'.$image_set.'_ical.png"> <a href="'.$icalfeed.'">Voeg het volledige programma van de poule aan je agenda toe</a><br /><br />'; 
             	} else {
-            		$code .= '<img align="absmiddle" src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/ical_grey.png"> <a href="'.$icalfeed.'">Voeg het volledige programma van het team aan je agenda toe</a><br /><br />';
+            		$code .= '<img align="absmiddle" src="'.get_site_url().'/wp-content/plugins/nevobo-feed/images/'.$image_set.'_ical.png"> <a href="'.$icalfeed.'">Voeg het volledige programma van het team aan je agenda toe</a><br /><br />';
             	}
 
         }
