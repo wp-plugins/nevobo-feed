@@ -64,6 +64,10 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.6 =
+* Maximale lengte van verenigingsnamen. (Mouseover-tooltip voor volledige naam)
+* Code Cleanup
+
 = 1.5.1 =
 * Wordpress 4.0 support
 
@@ -124,8 +128,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.5.1 =
-* Wordpress 4.0 support
+= 1.6 =
+* Maximale lengte van verenigingsnamen. (Mouseover-tooltip voor volledige naam)
+* Code Cleanup
 
 == Donations ==
 

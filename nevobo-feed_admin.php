@@ -6,6 +6,15 @@
         //Highlight Color
         $nevobofeed_highlight_color = $_POST['nevobofeed_highlight_color'];
         update_option('nevobofeed_highlight_color', $nevobofeed_highlight_color);
+        //Maximale Naamlengte programma
+        $nevobofeed_naamlengte_prog = $_POST['nevobofeed_naamlengte_prog'];
+        update_option('nevobofeed_naamlengte_prog', $nevobofeed_naamlengte_prog);
+        //Maximale Naamlengte uislagen
+        $nevobofeed_naamlengte_uitslag = $_POST['nevobofeed_naamlengte_uitslag'];
+        update_option('nevobofeed_naamlengte_uitslag', $nevobofeed_naamlengte_uitslag); 
+        //Maximale Naamlengte Stand
+        $nevobofeed_naamlengte_stand = $_POST['nevobofeed_naamlengte_stand'];
+        update_option('nevobofeed_naamlengte_stand', $nevobofeed_naamlengte_stand);
         //image set
         $nevobofeed_image_set = $_POST['nevobofeed_image_set'];
         update_option('nevobofeed_image_set', $nevobofeed_image_set);
@@ -34,7 +43,7 @@
         $nevobofeed_sets = $_POST['nevobofeed_sets'];
         update_option('nevobofeed_sets', $nevobofeed_sets);
          ?>  
-        <div class="updated"><p><strong><?php _e('Options saved.' ); ?></strong></p></div>  
+        <div class="updated"><p><strong><?php _e('Wijzigingen zijn opgeslagen' ); ?></strong></p></div>  
         <?php  
     } else {  
         //Normal page display  
@@ -49,6 +58,9 @@
         $nevobofeed_programma_aantal = get_option('nevobofeed_programma_aantal');
         $nevobofeed_ical = get_option('nevobofeed_ical');
         $nevobofeed_sets = get_option('nevobofeed_sets');
+        $nevobofeed_naamlengte_prog = get_option('nevobofeed_naamlengte_prog');
+        $nevobofeed_naamlengte_uitslag = get_option('nevobofeed_naamlengte_uitslag');
+        $nevobofeed_naamlengte_stand = get_option('nevobofeed_naamlengte_stand');
     } 
 ?>
 <style type="text/css">
@@ -83,12 +95,12 @@ label
           <tr>
             <td width="29%"><div class="label">Vereniging</div></td>
             <td width="30%"><input type="text" name="nevobofeed_vereniging" value="<?php echo $nevobofeed_vereniging; ?>" size="20" /></td>
-            <td width="41%">(gedeeltelijke) naam van een vereniging om extra te onderscheiden. voorbeeld: Krekkers</td>
+            <td width="41%">(gedeeltelijke) naam van een vereniging om extra te onderscheiden. voorbeeld: Krekkers<br /><br /></td>
         </tr>
           <tr>
             <td width="29%"><div class="label">Highlight Kleur</div></td>
             <td width="30%"><input type="text" name="nevobofeed_highlight_color" value="<?php echo $nevobofeed_highlight_color; ?>" /></td>
-            <td width="41%">Geef de highlight kleur op voor de gespecificeerde verenigingsnaam. Bijvoorbeeld #FF0000</td>
+            <td width="41%">Geef de highlight kleur op voor de gespecificeerde verenigingsnaam. Bijvoorbeeld #FF0000<br /><br /></td>
           </tr>
           <tr>
             <td width="29%"><div class="label">Afbeelindgen set</div></td>
@@ -100,7 +112,7 @@ label
                 <option value="lichtblauw" <?php if ($nevobofeed_image_set=="lichtblauw") echo "selected" ?>>Licht Blauw</option>
               </select>
              </td>
-            <td width="41%">Kies een afbeeldingen set voor Ical/Sets en Loc</td>
+            <td width="41%">Kies een afbeeldingen set voor Ical/Sets en Loc<br /><br /></td>
           </tr>
           <tr>
             <td>Cache</td>
@@ -114,25 +126,35 @@ label
               <option value="180" <?php if ($nevobofeed_cache=="180") echo "selected" ?>>3 uur</option>
               <option value="300" <?php if ($nevobofeed_cache=="300") echo "selected" ?>>5 uur</option>
             </select></td>
-            <td>Cache tijd - Standaard:3 uur</td>
+            <td>Cache tijd - Standaard:3 uur<br /><br /></td>
           </tr>
         </table>
       <h2>Stand instellingen</h2> 
     <hr />
         <table width="800px" border="0" cellspacing="0" cellpadding="0">
           <tr>
+            <td width="29%"><div class="label">Maximale verenigingsnaam breedte in pixels (zonder px)</div></td>
+            <td width="30%"><input type="text" name="nevobofeed_naamlengte_stand" value="<?php echo $nevobofeed_naamlengte_stand; ?>" /></td>
+            <td width="41%">Geef de maximale vereniging naamlengte op in px. De afgekapte naam zal herkenbaar zijn door de ...<br /><br /></td>
+          </tr>
+          <tr>
             <td width="29%"><div class="label">Aantal regels</div></td>
             <td width="30%"><input type="text" name="nevobofeed_standen_aantal" value="<?php echo $nevobofeed_standen_aantal; ?>" size="2" /></td>
-            <td width="41%">Aantal regels in het standoverzicht. standaard: 12</td>
+            <td width="41%">Aantal regels in het standoverzicht. standaard: 12<br /><br /></td>
           </tr>
         </table>
       <h2>Programma instellingen</h2>
       <hr />
       <table width="800px" border="0" cellspacing="0" cellpadding="0">
         <tr>
+            <td width="29%"><div class="label">Maximale verenigingsnaam breedte in pixels (zonder px)</div></td>
+            <td width="30%"><input type="text" name="nevobofeed_naamlengte_prog" value="<?php echo $nevobofeed_naamlengte_prog; ?>" /></td>
+            <td width="41%">Geef de maximale vereniging naamlengte op in px. De afgekapte naam zal herkenbaar zijn door de ...<br /><br /></td>
+          </tr>
+        <tr>
           <td width="29%"><div class="label">Aantal regels</div></td>
           <td width="30%"><input type="text" name="nevobofeed_programma_aantal" value="<?php echo $nevobofeed_programma_aantal; ?>" size="2" /></td>
-          <td width="41%">Aantal regels in het programmaoverzicht. standaard: 6</td>
+          <td width="41%">Aantal regels in het programmaoverzicht. standaard: 6<br /><br /></td>
         </tr>
         <tr>
         <td width="29%"><div class="label">
@@ -142,7 +164,7 @@ label
           <option value="1" <?php if ($nevobofeed_sporthal=="1") echo "selected" ?>>Tonen</option>
           <option value="" <?php if ($nevobofeed_sporthal=="") echo "selected" ?>>verbergen</option>
         </select></td>
-        <td width="41%">Toon de Sporthalnaam.</td>
+        <td width="41%">Toon de Sporthalnaam.<br /><br /></td>
       </tr>
       <tr>
         <td width="29%"><div class="label">
@@ -162,16 +184,21 @@ label
           <option value="1" <?php if ($nevobofeed_ical=="1") echo "selected" ?>>Tonen</option>
           <option value="" <?php if ($nevobofeed_ical=="") echo "selected" ?>>verbergen</option>
         </select></td>
-        <td width="41%">Toon de iCal link onder het programma</td>
+        <td width="41%">Toon de iCal link onder het programma<br /><br /></td>
       </tr>
       </table>
       <h2>Uitslagen instellingen</h2>
     <hr />
     <table width="800px" border="0" cellspacing="0" cellpadding="0">
       <tr>
+            <td width="29%"><div class="label">Maximale verenigingsnaam breedte in pixels (zonder px)</div></td>
+            <td width="30%"><input type="text" name="nevobofeed_naamlengte_uitslag" value="<?php echo $nevobofeed_naamlengte_uitslag; ?>" /></td>
+            <td width="41%">Geef de maximale vereniging naamlengte op in px. De afgekapte naam zal herkenbaar zijn door de ...<br /><br /></td>
+          </tr>
+      <tr>
         <td><span class="label">Aantal regels</span></td>
         <td><input type="text" name="nevobofeed_uitslagen_aantal" value="<?php echo $nevobofeed_uitslagen_aantal; ?>" size="2" /></td>
-        <td>Aantal regels in het uitslagenoverzicht. standaard: 6</td>
+        <td>Aantal regels in het uitslagenoverzicht. standaard: 6<br /><br /></td>
       </tr>
       <tr>
         <td width="29%"><div class="label">
@@ -181,7 +208,7 @@ label
           <option value="1" <?php if ($nevobofeed_sets=="1") echo "selected" ?>>Tonen</option>
           <option value="" <?php if ($nevobofeed_sets=="") echo "selected" ?>>verbergen</option>
         </select></td>
-        <td width="41%">Toon de setstanden pictogram met de setstanden.</td>
+        <td width="41%">Toon de setstanden pictogram met de setstanden.<br /><br /></td>
       </tr>
     </table>
     <p class="submit">  

@@ -4,3 +4,16 @@ Plugin by Harold Masselink - http://www.Masselink.net
 
 Styling can be added here
 */
+
+.nevobofeed td
+{
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* add cell effect here */
+.nevobofeed td:hover 
+{
+	
+} 

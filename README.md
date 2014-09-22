@@ -25,3 +25,5 @@ sets=0: Verberg de setstanden bij een uitslag
 vereniging=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight".
 
 voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1]
+
+Standaard instellingen zijn het admin paneel in te stellen
