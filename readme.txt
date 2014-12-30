@@ -3,8 +3,8 @@ Contributors: Masselink
 Tags: nevobo, feed, rss, competitie, volleybal, sport
 Requires at least: 3.1
 Donate link: http://massselink.net/nevobo-feed
-Tested up to: 4.0
-Stable tag: 4.0
+Tested up to: 4.1
+Stable tag: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,7 @@ cache=0
 ical=0
 sets=1
 vereniging='<verenigingsnaam of een deel ervan>'
+widget=1
 
 Aantal=x: De x is een opgegeven numerieke waarde die het aantal getoonde items limiteerd tot het gewenste aantal.
 Sporthal=1: geeft de sporthal waar de wedstrijd wordt gespeeld weer in het programma overzicht. (Alleen bij een programmafeed!)
@@ -34,8 +35,9 @@ Cache=0: Het gebruik van RSS caching uitgeschakeld. Caching is standaard ingeste
 ical=0: Verberg de ical programma link bij een programma.
 sets=0: Verberg de setstanden bij een uitslag 
 vereniging=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight".
+widget=1: geeft aan dat de code in widgt is geplaatst (geeft de mogelijkheid een andere layout te kiezen)
 
-voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1]
+voorbeeld: [nevobo feed="http://www.volleybal.nl/application/handlers/export.php?format=rss&type=team&programma=4106DS+4&iRegionId=5000" aantal=3 sporthal=1 plaats=1 widget=1]
 
 == Installation ==
 
@@ -53,6 +55,8 @@ aantal=x (limiteer het aantal items)
 cache=x (0 = schakel de cache uit, 1 = kwartier, 2 = 30 minuten, 3 = 45 minuten etc)
 ical=0 (0 schakel de ical link uit)
 sets=1 (toon setstanden door op een plaatje te hooveren)
+vereniging=<verenigingsnaam>: De plugin markeert de regel bij de stand, en de naam bij het programma en de uitslagen met de class="nevobo_highlight".
+widget=1: geeft aan dat de code in widgt is geplaatst (geeft de mogelijkheid een andere layout te kiezen)
 
 = Welke uitslagen kan ik tonen? =
 Het is mogelijk de uitslagen van de poule of de uitslagen van het team weer te geven.
@@ -63,6 +67,10 @@ De gekozen feed bepaald de getoonde uitslagen
 Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nevobo-feed" taget="_blank">hier</a> om de plugin in werking te zien. Ook <a href="http://krekkers.nl" taget="_blank">Krekkers.nl</a> maakt gebruik van de plugin.
 
 == Changelog ==
+
+= 1.7 =
+* Wordpress 4.1 Stable
+* Depricated Extract function replaced by shortcode_atts (Thanks: Wilmar den Ouden)
 
 = 1.6 =
 * Maximale lengte van verenigingsnamen. (Mouseover-tooltip voor volledige naam)
@@ -128,9 +136,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.6 =
-* Maximale lengte van verenigingsnamen. (Mouseover-tooltip voor volledige naam)
-* Code Cleanup
+= 1.7 =
+* Wordpress 4.1 Stable
+* Depricated Extract function replaced by shortcode_atts (Thanks: Wilmar den Ouden)
 
 == Donations ==
 
