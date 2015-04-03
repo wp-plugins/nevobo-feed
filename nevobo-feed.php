@@ -3,11 +3,11 @@
 Plugin Name: Nevobo Feed
 Plugin URI: http://masselink.net/nevobo-feed
 Description: Toon de RSS feeds van de Nevobo volleybal competitie in stijl op je website. Gebruik shortcode: [nevobo feed="url"] 
-Version: 1.7
+Version: 1.7.1
 Author: Harold Masselink
 Author URI: http://Masselink.net
 */
-define('nevobo_feed_versie','1.7');
+define('nevobo_feed_versie','1.7.1');
 add_shortcode('nevobo','nevobo_shortcode');
 add_action('admin_menu', 'nevobo_admin_actions');
 add_action( 'wp_enqueue_scripts', 'nevobo_feed_stylesheet' );
@@ -41,15 +41,15 @@ function nevobo_feed($feed,$add_paras) {
 // Feed list code
 function get_nevobo($feed,$aantal,$sporthal,$plaats,$cache,$vereniging,$ical,$sets,$naamlengte_prog,$naamlengte_uitslag,$naamlengte_stand) {  
     //Standaard parameter fallback
-	if (!is_null($vereniging)) $vereniging=get_option('nevobofeed_vereniging');
-	if (!is_null($sporthal)) $sporthal=get_option('nevobofeed_sporthal'); 
-	if (!is_null($plaats)) $plaats=get_option('nevobofeed_plaats');
-	if (!is_null($cache)) $cache=get_option('nevobofeed_cache');
-	if (!is_null($ical)) $ical=get_option('nevobofeed_ical');
-	if (!is_null($sets)) $sets=get_option('nevobofeed_sets');
-	if (!is_null($naamlengte_prog)) $naamlengte_prog=get_option('nevobofeed_naamlengte_prog');
-	if (!is_null($naamlengte_uitslag)) $naamlengte_uitslag=get_option('nevobofeed_naamlengte_uitslag');
-	if (!is_null($naamlengte_stand)) $naamlengte_stand=get_option('nevobofeed_naamlengte_stand');
+	if (is_null($vereniging)) $vereniging=get_option('nevobofeed_vereniging');
+	if (is_null($sporthal)) $sporthal=get_option('nevobofeed_sporthal'); 
+	if (is_null($plaats)) $plaats=get_option('nevobofeed_plaats');
+	if (is_null($cache)) $cache=get_option('nevobofeed_cache');
+	if (is_null($ical)) $ical=get_option('nevobofeed_ical');
+	if (is_null($sets)) $sets=get_option('nevobofeed_sets');
+	if (is_null($naamlengte_prog)) $naamlengte_prog=get_option('nevobofeed_naamlengte_prog');
+	if (is_null($naamlengte_uitslag)) $naamlengte_uitslag=get_option('nevobofeed_naamlengte_uitslag');
+	if (is_null($naamlengte_stand)) $naamlengte_stand=get_option('nevobofeed_naamlengte_stand');
 	$highlight_color=get_option('nevobofeed_highlight_color');
     $image_set=get_option('nevobofeed_image_set');
         

@@ -68,6 +68,9 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Changelog ==
 
+= 1.7.1 =
+* Bugfix: Shortcode settings not working (spotted by Ronald)
+
 = 1.7 =
 * Wordpress 4.1 Stable
 * Depricated Extract function replaced by shortcode_atts (Thanks: Wilmar den Ouden)
@@ -136,9 +139,8 @@ Er zijn geen screenshots beschikbaar. Klik <a href="http://www.masselink.net/nev
 
 == Upgrade Notice ==
 
-= 1.7 =
-* Wordpress 4.1 Stable
-* Depricated Extract function replaced by shortcode_atts (Thanks: Wilmar den Ouden)
+= 1.7.1 =
+* Bugfix: Shortcode settings not working (spotted by Ronald)
 
 == Donations ==
 
